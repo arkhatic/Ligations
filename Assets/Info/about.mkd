@@ -1,0 +1,12 @@
+# info about my project
+## color pallete:
+- polar color: #4553F5
+- apolar color: #F5CA2C
+- objective color: #38F56F
+- death color: #F55D5D
+
+- ground: #1E1E1E
+- background: #282828
+- player: #3C3C3C
+- white: #FFFFFF
+

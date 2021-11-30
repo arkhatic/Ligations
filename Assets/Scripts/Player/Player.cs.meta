@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ff10456f0252a34fa73c63f4f385468
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - polarObject: {fileID: 5307484773062986967, guid: f5e3fdf27905aa64a9370da9ab5de4e8, type: 3}
+  - apolarObject: {fileID: 5554043648731547250, guid: 69b427798a5922c4d8e16d641bf28099, type: 3}
+  - polarText: {instanceID: 0}
+  - apolarText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
