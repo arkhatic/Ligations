@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Polar Objects
   - Apolar Objects
+  - Button
   layers:
   - Default
   - TransparentFX

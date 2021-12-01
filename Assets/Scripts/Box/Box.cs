@@ -12,7 +12,7 @@ public class Box : MonoBehaviour {
     [HideInInspector] public bool atRightFromPlayer;
 
     private readonly Vector2[] directions = { Vector2.right, Vector2.left, Vector2.up };
-    private readonly float distanceToCollide = 1.7f;
+    private readonly float distanceToCollide = 1.5f;
     private readonly float offsetToDiffDir = 0.5f;
     private float collisionDistance;
     [SerializeField] private float distanceOffsetMultiplier;
@@ -32,15 +32,13 @@ public class Box : MonoBehaviour {
         collisionDistance = c(0) + c(1) + c(2);
         colliding = (collisionDistance <= distanceToCollide && collisionDistance != 0); 
         text.fontSize = Mathf.RoundToInt(collisionDistance != 0 ? 30f / collisionDistance : 1);
-        // Debug.Log($"Distance: {collisionDistance}, font size: {Mathf.RoundToInt(30f / collisionDistance)}");
-        // Debug.Log(colliding);
+        Debug.Log($"Distance: {collisionDistance}, font size: {Mathf.RoundToInt(30f / collisionDistance)}");
+        Debug.Log(colliding);
         text.rectTransform.anchoredPosition = new Vector2(
             transform.position.x, transform.position.y + 59.82f - (collisionDistance * distanceOffsetMultiplier));
         
         // position check
         if (player.transform.position.x > transform.position.x + offsetToDiffDir) atRightFromPlayer = true;
         else atRightFromPlayer = false;
-
-        // Debug.Log(atRightFromPlayer);
     }
 }
