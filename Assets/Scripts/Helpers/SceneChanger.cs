@@ -11,7 +11,7 @@ public static class SceneChanger {
 
     public static int GetCurrentChamberIndex() {
         string curChamber = SceneChanger.GetCurrentSceneName();
-        return int.Parse(curChamber.Split('_')[1]) + 1;
+        return int.Parse(curChamber.Split('_')[1]);
     }
 
     public static void LoadScene(string sceneName) {

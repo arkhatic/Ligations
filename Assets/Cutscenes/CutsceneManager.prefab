@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6286959837982622486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6286959837982622504}
+  - component: {fileID: 6286959837982622505}
+  - component: {fileID: -6556332069593064337}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6286959837982622504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286959837982622486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0042738765, y: 0.7940364, z: -2.4748063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6286959837982622505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286959837982622486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e4da6a37f25584a86b1dc070f962ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFiles:
+  - {fileID: 4900000, guid: 6ed688d1869278f4ba80901ea71dad5b, type: 3}
+  - {fileID: 4900000, guid: 41490693a8c147f428a4b7741d52eba7, type: 3}
+  - {fileID: 4900000, guid: 5b874eafc3c49174f895a417e0372b8c, type: 3}
+  - {fileID: 4900000, guid: 51e16d7ed38fa2146b69cab90c9416bc, type: 3}
+  - {fileID: 4900000, guid: 1fb24edf1db8f1946a84332f4ba3598a, type: 3}
+  - {fileID: 4900000, guid: 0a92ee4ceacd4784db81d954fa292aac, type: 3}
+  - {fileID: 4900000, guid: c501e6ea5b58ae44a93a3e72cd7c04e6, type: 3}
+  textObject: {fileID: 0}
+  nextScene: {fileID: 0}
+--- !u!114 &-6556332069593064337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6286959837982622486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e4da6a37f25584a86b1dc070f962ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFiles: []
+  textObject: {fileID: 0}
+  nextScene: {fileID: 0}

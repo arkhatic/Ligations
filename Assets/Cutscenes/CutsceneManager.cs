@@ -6,21 +6,24 @@ using TMPro;
 public class CutsceneManager : MonoBehaviour {
     public TextAsset[] textFiles;
     public TextMeshProUGUI textObject;
-    public Player player;
+    public NextScene nextScene;
 
     private void Start() {
         Init();
     }
 
     private IEnumerator DrawText(string[] lines) {
+        nextScene.canChangeScene = false;
         foreach (string line in lines) {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
             textObject.text = line;
         }
+        nextScene.canChangeScene = true;
     }
 
     public void Init() {
         int currentChamber = SceneChanger.GetCurrentChamberIndex();
+        Debug.Log(currentChamber);
 
         switch (currentChamber) {
             case 0: 
@@ -28,14 +31,21 @@ public class CutsceneManager : MonoBehaviour {
                 // it talks some text.
                 // TODO: make the player actually talks with sound
                 string[] lines = textFiles[0].text.Split('\n');
-                player.canMove = false;
                 StartCoroutine(DrawText(lines));
-                player.canMove = true;
+                nextScene.canChangeScene = true;
                 return;
 
             case 1:
-                string[] secondLines = textFiles[0].text.Split('\n');
+                string[] secondLines = textFiles[1].text.Split('\n');
                 StartCoroutine(DrawText(secondLines));
+                break;
+            
+            case 2: 
+                StartCoroutine(DrawText(textFiles[2].text.Split('\n')));
+                break;
+            
+            case 3:
+                StartCoroutine(DrawText(textFiles[3].text.Split('\n')));
                 break;
         }
     }

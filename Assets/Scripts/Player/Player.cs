@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
     public Transform[] sensors;
     public GameObject polarObject;
     public GameObject apolarObject;
-    [HideInInspector] public bool canMove = true;
     [HideInInspector] public bool isGrounded;
 
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -20,8 +19,6 @@ public class Player : MonoBehaviour {
     private Rigidbody2D body;
     private Box polarBox;
     private Box apolarBox;
-
-    private bool pulling = false;
     
     private void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -47,51 +44,25 @@ public class Player : MonoBehaviour {
         return false;
     }
 
-    private void Movement() {
-        if (!canMove) return;
+    private void Update() {
         isGrounded = CheckGrounded();
         horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.Space) && isGrounded) Jump();
         else if (Input.GetKey(KeyCode.S) && !isGrounded) FastFall();
-    }
+        if (Input.GetKeyDown(KeyCode.Backspace)) SceneChanger.LoadNextChamber();
 
+        // if (GameObject.Find("Polar Box") == null && GameObject.Find("Apolar Box") == null) return;
+        apolarText.text = "push me!";
 
-    private void PullPolarBox() {
-        /// BUG: box behaves strangely
-        Transform tran = polarObject.transform;
-        tran.position = new Vector3(
-            transform.position.x + (tran.position.x > transform.position.x ? 1.52f : -1.52f), 
-            transform.position.y + 0.108f, 
-            transform.position.z
-        );
-    }
-    
-    private void PushApolarBox() {
-        Rigidbody2D body = apolarObject.GetComponent<Rigidbody2D>();
-        body.velocity = new Vector2(body.velocity.x + (!apolarBox.atRightFromPlayer ? 10f : -10f), body.velocity.y);
-    }
-
-    private void BoxesRelations() {
-        if (GameObject.Find("Polar Box") == null && GameObject.Find("Apolar Box") == null) return;
-
-        if (apolarBox.colliding && Input.GetMouseButtonDown(0)) {
-            PushApolarBox();
-            apolarText.text = "mmmmm";
-        } 
-        else apolarText.text = "me empurre!";
-        
-        if (Input.GetMouseButtonDown(0)) pulling = !pulling;
-
-        if (polarBox.colliding && pulling) {
-            PullPolarBox();
+        if (polarBox.colliding && Input.GetMouseButton(0)) {
+            polarObject.transform.position = new Vector3(
+                transform.position.x + (polarObject.transform.position.x > transform.position.x ? 1.52f : -1.52f), 
+                transform.position.y + 0.108f, 
+                transform.position.z
+            );
             polarText.text = "aiaiai";
         } 
-        else polarText.text = "me puxe!";
-    }
-
-    private void Update() {
-        Movement();
-        BoxesRelations();
+        else polarText.text = "pull me!";
     }
 
     private void FixedUpdate() {
